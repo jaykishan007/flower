@@ -30,7 +30,7 @@
             <li><a href="#tab-broker" data-toggle="tab">Broker</a></li>
             <li><a href="#tab-queues" data-toggle="tab">Queues</a></li>
             <li><a href="#tab-tasks" data-toggle="tab">Tasks</a></li>
-            <li><a href="#tab-limits" data-toggle="tab">Limits</a></li>
+            <!-- <li><a href="#tab-limits" data-toggle="tab">Limits</a></li> -->
             <li><a href="#tab-config" data-toggle="tab">Config</a></li>
             <li><a href="#tab-system" data-toggle="tab">System</a></li>
           </ul>
@@ -61,7 +61,7 @@
                   </table>
                 </div>
 
-                <div class="span6">
+                <!-- <div class="span6">
                   <div class="form-horizontal">
                     <fieldset>
                       <legend>Pool size control</legend>
@@ -94,7 +94,8 @@
                       </div>
                     </fieldset>
                   </div>
-                </div>
+                </div> -->
+
               </div>
 
               {% if worker['stats'].get('autoscaler', None) %}
@@ -136,14 +137,14 @@
             <div class="tab-pane" id="tab-queues">
               <h3>Active  <small>queues being consumed from</small></h3>
 
-              <div class="control-group">
+              <!-- <div class="control-group">
                 <div class="controls">
                   <div class="input-append">
                     <input class="span2" id="add-consumer-name" size="16" type="text">
                     <button class="btn" type="button" onclick="flower.on_add_consumer(event)">Add Consumer</button>
                  </div>
                 </div>
-              </div>
+              </div> -->
 
               <table class="table table-bordered table-striped">
                 <thead>
@@ -174,7 +175,7 @@
                       <td>{{ queue['queue_arguments'] }}</td>
                       <td>{{ queue['binding_arguments'] }}</td>
                       <td>{{ queue['auto_delete'] }}</td>
-                      <td><button class="btn btn-danger" onclick="flower.on_cancel_consumer(event)">Cancel Consumer</button></td>
+                      <!-- <td><button class="btn btn-danger" onclick="flower.on_cancel_consumer(event)">Cancel Consumer</button></td> -->
                   </tr>
                 {% end %}
               </tbody>
@@ -281,7 +282,7 @@
               </table>
             </div> <!-- end tasks tab -->
 
-            <div class="tab-pane" id="tab-limits">
+            <!-- <div class="tab-pane" id="tab-limits">
               <h3>Task limits</h3>
               <table class="table table-bordered table-striped">
                 <thead>
@@ -318,7 +319,7 @@
                   </tr>
                 {% end %}
               </table>
-          </div> <!-- end limits tab -->
+          </div> end limits tab -->
 
           <div class="tab-pane" id="tab-config">
             <div class="span8">

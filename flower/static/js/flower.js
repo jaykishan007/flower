@@ -118,191 +118,191 @@ var flower = (function () {
         });
     }
 
-    function on_pool_grow(event) {
-        event.preventDefault();
-        event.stopPropagation();
+    // function on_pool_grow(event) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
 
-        var workername = $('#workername').text(),
-            grow_size = $('#pool-size option:selected').html();
+    //     var workername = $('#workername').text(),
+    //         grow_size = $('#pool-size option:selected').html();
 
-        $.ajax({
-            type: 'POST',
-            url: url_prefix() + '/api/worker/pool/grow/' + workername,
-            dataType: 'json',
-            data: {
-                'workername': workername,
-                'n': grow_size,
-            },
-            success: function (data) {
-                show_success_alert(data.message);
-            },
-            error: function (data) {
-                show_error_alert(data.responseText);
-            }
-        });
-    }
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: url_prefix() + '/api/worker/pool/grow/' + workername,
+    //         dataType: 'json',
+    //         data: {
+    //             'workername': workername,
+    //             'n': grow_size,
+    //         },
+    //         success: function (data) {
+    //             show_success_alert(data.message);
+    //         },
+    //         error: function (data) {
+    //             show_error_alert(data.responseText);
+    //         }
+    //     });
+    // }
 
-    function on_pool_shrink(event) {
-        event.preventDefault();
-        event.stopPropagation();
+    // function on_pool_shrink(event) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
 
-        var workername = $('#workername').text(),
-            shrink_size = $('#pool-size option:selected').html();
+    //     var workername = $('#workername').text(),
+    //         shrink_size = $('#pool-size option:selected').html();
 
-        $.ajax({
-            type: 'POST',
-            url: url_prefix() + '/api/worker/pool/shrink/' + workername,
-            dataType: 'json',
-            data: {
-                'workername': workername,
-                'n': shrink_size,
-            },
-            success: function (data) {
-                show_success_alert(data.message);
-            },
-            error: function (data) {
-                show_error_alert(data.responseText);
-            }
-        });
-    }
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: url_prefix() + '/api/worker/pool/shrink/' + workername,
+    //         dataType: 'json',
+    //         data: {
+    //             'workername': workername,
+    //             'n': shrink_size,
+    //         },
+    //         success: function (data) {
+    //             show_success_alert(data.message);
+    //         },
+    //         error: function (data) {
+    //             show_error_alert(data.responseText);
+    //         }
+    //     });
+    // }
 
-    function on_pool_autoscale(event) {
-        event.preventDefault();
-        event.stopPropagation();
+    // function on_pool_autoscale(event) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
 
-        var workername = $('#workername').text(),
-            min = $('#min-autoscale').val(),
-            max = $('#max-autoscale').val();
+    //     var workername = $('#workername').text(),
+    //         min = $('#min-autoscale').val(),
+    //         max = $('#max-autoscale').val();
 
-        $.ajax({
-            type: 'POST',
-            url: url_prefix() + '/api/worker/pool/autoscale/' + workername,
-            dataType: 'json',
-            data: {
-                'workername': workername,
-                'min': min,
-                'max': max,
-            },
-            success: function (data) {
-                show_success_alert(data.message);
-            },
-            error: function (data) {
-                show_error_alert(data.responseText);
-            }
-        });
-    }
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: url_prefix() + '/api/worker/pool/autoscale/' + workername,
+    //         dataType: 'json',
+    //         data: {
+    //             'workername': workername,
+    //             'min': min,
+    //             'max': max,
+    //         },
+    //         success: function (data) {
+    //             show_success_alert(data.message);
+    //         },
+    //         error: function (data) {
+    //             show_error_alert(data.responseText);
+    //         }
+    //     });
+    // }
 
-    function on_add_consumer(event) {
-        event.preventDefault();
-        event.stopPropagation();
+    // function on_add_consumer(event) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
 
-        var workername = $('#workername').text(),
-            queue = $('#add-consumer-name').val();
+    //     var workername = $('#workername').text(),
+    //         queue = $('#add-consumer-name').val();
 
-        $.ajax({
-            type: 'POST',
-            url: url_prefix() + '/api/worker/queue/add-consumer/' + workername,
-            dataType: 'json',
-            data: {
-                'workername': workername,
-                'queue': queue,
-            },
-            success: function (data) {
-                show_success_alert(data.message);
-                setTimeout(function () {
-                    $('#tab-queues').load('/worker/' + workername + ' #tab-queues').fadeIn('show');
-                }, 10000);
-            },
-            error: function (data) {
-                show_error_alert(data.responseText);
-            }
-        });
-    }
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: url_prefix() + '/api/worker/queue/add-consumer/' + workername,
+    //         dataType: 'json',
+    //         data: {
+    //             'workername': workername,
+    //             'queue': queue,
+    //         },
+    //         success: function (data) {
+    //             show_success_alert(data.message);
+    //             setTimeout(function () {
+    //                 $('#tab-queues').load('/worker/' + workername + ' #tab-queues').fadeIn('show');
+    //             }, 10000);
+    //         },
+    //         error: function (data) {
+    //             show_error_alert(data.responseText);
+    //         }
+    //     });
+    // }
 
-    function on_cancel_consumer(event) {
-        event.preventDefault();
-        event.stopPropagation();
+    // function on_cancel_consumer(event) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
 
-        var workername = $('#workername').text(),
-            queue = $(event.target).closest("tr").children("td:eq(0)").text();
+    //     var workername = $('#workername').text(),
+    //         queue = $(event.target).closest("tr").children("td:eq(0)").text();
 
-        $.ajax({
-            type: 'POST',
-            url: url_prefix() + '/api/worker/queue/cancel-consumer/' + workername,
-            dataType: 'json',
-            data: {
-                'workername': workername,
-                'queue': queue,
-            },
-            success: function (data) {
-                show_success_alert(data.message);
-                setTimeout(function () {
-                    $('#tab-queues').load('/worker/' + workername + ' #tab-queues').fadeIn('show');
-                }, 10000);
-            },
-            error: function (data) {
-                show_error_alert(data.responseText);
-            }
-        });
-    }
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: url_prefix() + '/api/worker/queue/cancel-consumer/' + workername,
+    //         dataType: 'json',
+    //         data: {
+    //             'workername': workername,
+    //             'queue': queue,
+    //         },
+    //         success: function (data) {
+    //             show_success_alert(data.message);
+    //             setTimeout(function () {
+    //                 $('#tab-queues').load('/worker/' + workername + ' #tab-queues').fadeIn('show');
+    //             }, 10000);
+    //         },
+    //         error: function (data) {
+    //             show_error_alert(data.responseText);
+    //         }
+    //     });
+    // }
 
-    function on_task_timeout(event) {
-        event.preventDefault();
-        event.stopPropagation();
+    // function on_task_timeout(event) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
 
-        var post_data = {
-                'workername': $('#workername').text()
-            },
-            taskname = $(event.target).closest("tr").children("td:eq(0)").text(),
-            type = $(event.target).text().toLowerCase(),
-            timeout = $(event.target).siblings().closest("input").val();
+    //     var post_data = {
+    //             'workername': $('#workername').text()
+    //         },
+    //         taskname = $(event.target).closest("tr").children("td:eq(0)").text(),
+    //         type = $(event.target).text().toLowerCase(),
+    //         timeout = $(event.target).siblings().closest("input").val();
 
-        taskname = taskname.split(' ')[0]; // removes [rate_limit=xxx]
-        post_data[type] = timeout;
+    //     taskname = taskname.split(' ')[0]; // removes [rate_limit=xxx]
+    //     post_data[type] = timeout;
 
-        $.ajax({
-            type: 'POST',
-            url: url_prefix() + '/api/task/timeout/' + taskname,
-            dataType: 'json',
-            data: post_data,
-            success: function (data) {
-                show_success_alert(data.message);
-            },
-            error: function (data) {
-                show_error_alert(data.responseText);
-            }
-        });
-    }
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: url_prefix() + '/api/task/timeout/' + taskname,
+    //         dataType: 'json',
+    //         data: post_data,
+    //         success: function (data) {
+    //             show_success_alert(data.message);
+    //         },
+    //         error: function (data) {
+    //             show_error_alert(data.responseText);
+    //         }
+    //     });
+    // }
 
-    function on_task_rate_limit(event) {
-        event.preventDefault();
-        event.stopPropagation();
+    // function on_task_rate_limit(event) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
 
-        var workername = $('#workername').text(),
-            taskname = $(event.target).closest("tr").children("td:eq(0)").text(),
-            ratelimit = $(event.target).prev().val();
+    //     var workername = $('#workername').text(),
+    //         taskname = $(event.target).closest("tr").children("td:eq(0)").text(),
+    //         ratelimit = $(event.target).prev().val();
 
-        taskname = taskname.split(' ')[0]; // removes [rate_limit=xxx]
+    //     taskname = taskname.split(' ')[0]; // removes [rate_limit=xxx]
 
-        $.ajax({
-            type: 'POST',
-            url: url_prefix() + '/api/task/rate-limit/' + taskname,
-            dataType: 'json',
-            data: {
-                'workername': workername,
-                'ratelimit': ratelimit,
-            },
-            success: function (data) {
-                show_success_alert(data.message);
-                setTimeout(function () {
-                    $('#tab-limits').load('/worker/' + workername + ' #tab-limits').fadeIn('show');
-                }, 10000);
-            },
-            error: function (data) {
-                show_error_alert(data.responseText);
-            }
-        });
-    }
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: url_prefix() + '/api/task/rate-limit/' + taskname,
+    //         dataType: 'json',
+    //         data: {
+    //             'workername': workername,
+    //             'ratelimit': ratelimit,
+    //         },
+    //         success: function (data) {
+    //             show_success_alert(data.message);
+    //             setTimeout(function () {
+    //                 $('#tab-limits').load('/worker/' + workername + ' #tab-limits').fadeIn('show');
+    //             }, 10000);
+    //         },
+    //         error: function (data) {
+    //             show_error_alert(data.responseText);
+    //         }
+    //     });
+    // }
 
     function on_task_revoke(event) {
         event.preventDefault();
@@ -852,13 +852,13 @@ var flower = (function () {
         on_worker_refresh: on_worker_refresh,
         on_worker_pool_restart: on_worker_pool_restart,
         on_worker_shutdown: on_worker_shutdown,
-        on_pool_grow: on_pool_grow,
-        on_pool_shrink: on_pool_shrink,
-        on_pool_autoscale: on_pool_autoscale,
-        on_add_consumer: on_add_consumer,
-        on_cancel_consumer: on_cancel_consumer,
-        on_task_timeout: on_task_timeout,
-        on_task_rate_limit: on_task_rate_limit,
+        // on_pool_grow: on_pool_grow,
+        // on_pool_shrink: on_pool_shrink,
+        // on_pool_autoscale: on_pool_autoscale,
+        // on_add_consumer: on_add_consumer,
+        // on_cancel_consumer: on_cancel_consumer,
+        // on_task_timeout: on_task_timeout,
+        // on_task_rate_limit: on_task_rate_limit,
         on_cancel_task_filter: on_cancel_task_filter,
         on_task_revoke: on_task_revoke,
         on_task_terminate: on_task_terminate,
